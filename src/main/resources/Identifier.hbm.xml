@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.Identifier" table="lom_identifier">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="catalog" column="catalog" type="string" length="255"/>
+        <property name="entry" column="entry" type="string" length="500"/>
+        
+        <!-- Relations -->
+        <many-to-one name="general" class="org.emsi.entities.General" column="general_id"/>
+        <many-to-one name="metaMetadata" class="org.emsi.entities.MetaMetadata" column="meta_metadata_id"/>
+    </class>
+</hibernate-mapping>

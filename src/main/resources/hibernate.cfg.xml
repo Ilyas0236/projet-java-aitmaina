@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configuration de la connexion MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/lom_db?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
+        <property name="hibernate.connection.username">lom_user</property>
+        <property name="hibernate.connection.password">lom_password</property>
+
+        <!-- Dialecte MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Configuration du pool de connexions -->
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- Configuration Hibernate -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.use_sql_comments">true</property>
+
+        <!-- Encodage -->
+        <property name="hibernate.connection.CharSet">utf8mb4</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+
+        <!-- Fichiers de mapping XML -->
+        <mapping resource="User.hbm.xml"/>
+        <mapping resource="LomSchema.hbm.xml"/>
+        <mapping resource="General.hbm.xml"/>
+        <mapping resource="Identifier.hbm.xml"/>
+        <mapping resource="Lifecycle.hbm.xml"/>
+        <mapping resource="Contribute.hbm.xml"/>
+        <mapping resource="MetaMetadata.hbm.xml"/>
+        <mapping resource="Technical.hbm.xml"/>
+        <mapping resource="Requirement.hbm.xml"/>
+        <mapping resource="OrComposite.hbm.xml"/>
+        <mapping resource="Educational.hbm.xml"/>
+        <mapping resource="Rights.hbm.xml"/>
+        <mapping resource="Relation.hbm.xml"/>
+        <mapping resource="Resource.hbm.xml"/>
+        <mapping resource="Annotation.hbm.xml"/>
+        <mapping resource="Classification.hbm.xml"/>
+        <mapping resource="TaxonPath.hbm.xml"/>
+        <mapping resource="Taxon.hbm.xml"/>
+        
+        <!-- Nouvelles entités pour les fonctionnalités avancées -->
+        <mapping resource="Tag.hbm.xml"/>
+        <mapping resource="ResourceFile.hbm.xml"/>
+        <mapping resource="Favorite.hbm.xml"/>
+        <mapping resource="ViewHistory.hbm.xml"/>
+        <mapping resource="Rating.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

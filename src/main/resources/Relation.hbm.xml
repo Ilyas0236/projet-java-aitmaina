@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.Relation" table="lom_relation">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="kind" column="kind" type="string" length="50"/>
+        
+        <!-- Relation vers LomSchema -->
+        <many-to-one name="lomSchema" class="org.emsi.entities.LomSchema" column="lom_schema_id"/>
+        
+        <!-- Ressource liée -->
+        <one-to-one name="resource" class="org.emsi.entities.Resource" cascade="all"/>
+    </class>
+</hibernate-mapping>

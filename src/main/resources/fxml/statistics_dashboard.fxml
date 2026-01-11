@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.text.Font?>
+
+<!-- 
+    Interface FXML: Dashboard de Statistiques
+    
+    Cette interface utilise:
+    - BarChart pour la distribution par langue
+    - PieChart pour la distribution par difficulté
+    - Labels pour les KPIs (indicateurs clés)
+    
+    @author Projet LOM - EMSI
+-->
+<BorderPane style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emsi.ui.controllers.StatisticsDashboardController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #2c3e50;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+         </padding>
+         <children>
+            <Label text="📊 Tableau de Bord - Statistiques" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <ComboBox fx:id="periodCombo" promptText="Période">
+            </ComboBox>
+            <Button mnemonicParsing="false" onAction="#handleRefresh" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-cursor: hand;" text="🔄 Actualiser" />
+            <Button mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-cursor: hand;" text="✕ Fermer" />
+         </children>
+      </HBox>
+   </top>
+   
+   <center>
+      <VBox spacing="20.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <!-- KPI Cards -->
+            <HBox spacing="20.0" alignment="CENTER">
+               <!-- Card 1: Total Ressources -->
+               <VBox alignment="CENTER" style="-fx-background-color: #3498db; -fx-background-radius: 10;" prefWidth="200" prefHeight="100">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  <Label fx:id="totalResourcesLabel" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ressources Totales" textFill="WHITE">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </VBox>
+               
+               <!-- Card 2: Langues -->
+               <VBox alignment="CENTER" style="-fx-background-color: #27ae60; -fx-background-radius: 10;" prefWidth="200" prefHeight="100">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  <Label fx:id="totalLanguagesLabel" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Langues Différentes" textFill="WHITE">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </VBox>
+               
+               <!-- Card 3: Difficulté Moyenne -->
+               <VBox alignment="CENTER" style="-fx-background-color: #e67e22; -fx-background-radius: 10;" prefWidth="200" prefHeight="100">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  <Label fx:id="avgDifficultyLabel" text="0.0" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Difficulté Moyenne" textFill="WHITE">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </VBox>
+               
+               <!-- Card 4: Ressources Aujourd'hui -->
+               <VBox alignment="CENTER" style="-fx-background-color: #9b59b6; -fx-background-radius: 10;" prefWidth="200" prefHeight="100">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  <Label fx:id="todayResourcesLabel" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ajoutées Aujourd'hui" textFill="WHITE">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </VBox>
+            </HBox>
+            
+            <Separator />
+            
+            <!-- Graphiques -->
+            <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+               <!-- BarChart: Ressources par Langue -->
+               <VBox style="-fx-background-color: white; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+                  <Label text="📊 Distribution par Langue" style="-fx-font-weight: bold;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <BarChart fx:id="languageChart" VBox.vgrow="ALWAYS">
+                     <xAxis>
+                        <CategoryAxis label="Langue" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="Nombre de ressources" />
+                     </yAxis>
+                  </BarChart>
+               </VBox>
+               
+               <!-- PieChart: Ressources par Difficulté -->
+               <VBox style="-fx-background-color: white; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+                  <Label text="🎯 Distribution par Difficulté" style="-fx-font-weight: bold;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <PieChart fx:id="difficultyChart" VBox.vgrow="ALWAYS" />
+               </VBox>
+            </HBox>
+            
+            <!-- Statistiques additionnelles -->
+            <HBox spacing="20.0">
+               <VBox style="-fx-background-color: white; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  <Label text="📈 Ressources Incomplètes" style="-fx-font-weight: bold;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="incompleteLabel" text="0 ressources nécessitent des métadonnées" />
+               </VBox>
+               
+               <VBox style="-fx-background-color: white; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+                  <Label text="🏷️ Mots-clés Populaires" style="-fx-font-weight: bold;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="keywordsLabel" text="Aucun mot-clé" wrapText="true" />
+               </VBox>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

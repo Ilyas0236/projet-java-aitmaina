@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+    Mapping Hibernate XML pour l'entité ResourceFile
+    
+    Ce fichier démontre:
+    - Mapping d'une entité avec relation many-to-one
+    - Configuration des types de colonnes
+    - Propriétés avec valeurs par défaut
+    
+    @author Projet LOM - EMSI
+-->
+<hibernate-mapping>
+    <class name="org.emsi.entities.ResourceFile" table="lom_resource_file">
+        <!-- Clé primaire avec génération automatique -->
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Propriétés du fichier -->
+        <property name="fileName" column="file_name" type="string" length="500" not-null="true"/>
+        <property name="originalName" column="original_name" type="string" length="255" not-null="true"/>
+        <property name="storagePath" column="storage_path" type="string" length="1000"/>
+        <property name="mimeType" column="mime_type" type="string" length="100"/>
+        <property name="fileSize" column="file_size" type="java.lang.Long"/>
+        <property name="uploadedAt" column="uploaded_at" type="timestamp"/>
+        <property name="downloadCount" column="download_count" type="java.lang.Integer"/>
+        
+        <!-- 
+            Relation many-to-one avec LomSchema
+            
+            - not-null="true": un fichier doit toujours être associé à une ressource
+            - lazy="false": chargement immédiat de la ressource parente
+            - cascade="none": pas de propagation (le fichier ne crée pas de ressource)
+        -->
+        <many-to-one name="lomSchema" 
+                     class="org.emsi.entities.LomSchema" 
+                     column="lom_schema_id" 
+                     not-null="true" 
+                     lazy="false"/>
+    </class>
+</hibernate-mapping>

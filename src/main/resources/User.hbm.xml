@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.User" table="users">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="username" column="username" type="string" length="50" not-null="true" unique="true"/>
+        <property name="password" column="password" type="string" length="255" not-null="true"/>
+        <property name="role" column="role" type="string" length="20" not-null="true"/>
+        <property name="email" column="email" type="string" length="100"/>
+        <property name="fullName" column="full_name" type="string" length="100"/>
+    </class>
+</hibernate-mapping>

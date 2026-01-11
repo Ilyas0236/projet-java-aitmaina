@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.Contribute" table="lom_contribute">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="role" column="role" type="string" length="100"/>
+        <property name="entity" column="entity" type="text"/>
+        <property name="date" column="contribute_date" type="timestamp"/>
+        
+        <!-- Relation vers Lifecycle -->
+        <many-to-one name="lifecycle" class="org.emsi.entities.Lifecycle" column="lifecycle_id"/>
+    </class>
+</hibernate-mapping>

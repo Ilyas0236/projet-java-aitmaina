@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.Technical" table="lom_technical">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="format" column="format" type="string" length="100"/>
+        <property name="size" column="size" type="string" length="50"/>
+        <property name="location" column="location" type="string" length="1000"/>
+        <property name="installationRemarks" column="installation_remarks" type="text"/>
+        <property name="otherPlatformRequirements" column="other_platform_requirements" type="text"/>
+        <property name="duration" column="duration" type="string" length="100"/>
+        
+        <!-- Relation vers LomSchema -->
+        <many-to-one name="lomSchema" class="org.emsi.entities.LomSchema" column="lom_schema_id" unique="true"/>
+        
+        <!-- Exigences techniques -->
+        <set name="requirements" inverse="true" cascade="all-delete-orphan">
+            <key column="technical_id"/>
+            <one-to-many class="org.emsi.entities.Requirement"/>
+        </set>
+    </class>
+</hibernate-mapping>

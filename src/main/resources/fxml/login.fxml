@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emsi.ui.controllers.LoginController">
+    <padding>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+    </padding>
+
+    <Label text="🎓 LOM 1.0 - Gestion des Ressources Pédagogiques" textFill="#2c3e50">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    
+    <Label text="Application de métadonnées éducatives" textFill="#7f8c8d">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    
+    <Region prefHeight="20.0" />
+    
+    <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
+        <Label text="Nom d'utilisateur:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="usernameField" prefWidth="250.0" promptText="Entrez votre nom d'utilisateur" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        
+        <Label text="Mot de passe:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <PasswordField fx:id="passwordField" onAction="#handleLogin" prefWidth="250.0" promptText="Entrez votre mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    </GridPane>
+    
+    <Label fx:id="errorLabel" textFill="#e74c3c" />
+    
+    <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30; -fx-cursor: hand;" text="Se connecter" />
+    
+    <Hyperlink fx:id="signUpLink" onAction="#handleSignUp" style="-fx-text-fill: #3498db; -fx-font-size: 12px;" text="Pas de compte ? S'inscrire" />
+    
+    <Region prefHeight="10.0" />
+    
+    <Label text="👤 Admin: admin/admin | Utilisateur: user/user" textFill="#95a5a6">
+        <font>
+            <Font size="11.0" />
+        </font>
+    </Label>
+</VBox>

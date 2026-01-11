@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emsi.ui.controllers.SignUpController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Nom d'utilisateur:" />
+      <TextField fx:id="usernameField" promptText="Nom d'utilisateur" GridPane.columnIndex="1" />
+      <Label text="Mot de passe:" GridPane.rowIndex="1" />
+      <PasswordField fx:id="passwordField" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="Nom complet:" GridPane.rowIndex="2" />
+      <TextField fx:id="fullNameField" promptText="Nom complet" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="Email:" GridPane.rowIndex="3" />
+      <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="150.0" top="20.0" />
+   </padding>
+</GridPane>

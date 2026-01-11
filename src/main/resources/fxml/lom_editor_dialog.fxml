@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<TabPane prefHeight="500.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emsi.ui.controllers.LomEditorController">
+  <tabs>
+    <Tab text="1. General">
+      <content>
+        <ScrollPane fitToWidth="true">
+               <content>
+                  <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Titre:" />
+                        <TextField fx:id="titleField" prefWidth="400.0" GridPane.columnIndex="1" />
+                        <Label text="Langue:" GridPane.rowIndex="1" />
+                        <TextField fx:id="languageField" promptText="fr, en, ar..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Description:" GridPane.rowIndex="2" />
+                        <TextArea fx:id="descriptionArea" prefRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Mots-clés:" GridPane.rowIndex="3" />
+                        <TextField fx:id="keywordField" promptText="mot1, mot2, mot3..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Structure:" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="structureCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Niveau d'agrégation:" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="aggregationLevelCombo" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+        </ScrollPane>
+      </content>
+    </Tab>
+    <Tab text="2. Lifecycle">
+      <content>
+            <GridPane hgap="10.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Version:" />
+                  <TextField fx:id="versionField" promptText="1.0" GridPane.columnIndex="1" />
+                  <Label text="Statut:" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="statusCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </GridPane>
+      </content>
+    </Tab>
+      <Tab text="4. Technical">
+         <content>
+            <GridPane hgap="10.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Format (MIME):" />
+                  <TextField fx:id="formatField" promptText="application/pdf, video/mp4..." GridPane.columnIndex="1" />
+                  <Label text="Taille:" GridPane.rowIndex="1" />
+                  <TextField fx:id="sizeField" promptText="Taille en octets" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Localisation:" GridPane.rowIndex="2" />
+                  <TextField fx:id="locationField" prefWidth="400.0" promptText="URL ou chemin du fichier" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Durée:" GridPane.rowIndex="3" />
+                  <TextField fx:id="durationField" promptText="PT1H30M (format ISO 8601)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </Tab>
+      <Tab text="5. Educational">
+         <content>
+            <ScrollPane fitToWidth="true">
+               <content>
+                  <GridPane hgap="10.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Type d'interactivité:" />
+                        <ComboBox fx:id="interactivityTypeCombo" prefWidth="200.0" GridPane.columnIndex="1" />
+                        <Label text="Type de ressource:" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="learningResourceTypeCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Niveau d'interactivité:" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="interactivityLevelCombo" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Public cible:" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="intendedEndUserRoleCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Contexte:" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="contextCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Difficulté (1-5):" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="difficultyCombo" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Temps d'apprentissage:" GridPane.rowIndex="6" />
+                        <TextField fx:id="typicalLearningTimeField" promptText="PT2H (format ISO 8601)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label text="Tranche d'âge:" GridPane.rowIndex="7" />
+                        <TextField fx:id="typicalAgeRangeField" promptText="18-25" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </content>
+      </Tab>
+      <Tab text="6. Rights">
+         <content>
+            <GridPane hgap="10.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Payant:" />
+                  <ComboBox fx:id="costCombo" prefWidth="150.0" GridPane.columnIndex="1" />
+                  <Label text="Droits d'auteur:" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="copyrightCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Description:" GridPane.rowIndex="2" />
+                  <TextArea fx:id="rightsDescriptionArea" prefRowCount="3" promptText="Description des conditions d'utilisation..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

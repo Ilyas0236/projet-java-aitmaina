@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysql-lom:
+    image: mysql:8.0
+    container_name: mysql-lom
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lom_db
+      MYSQL_USER: lom_user
+      MYSQL_PASSWORD: lom_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data:

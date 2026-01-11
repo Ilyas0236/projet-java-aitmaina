@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+    Mapping Hibernate XML: ViewHistory (Historique de Navigation)
+    
+    Table: lom_view_history
+    Relations:
+    - many-to-one: User (utilisateur qui a consulté)
+    - many-to-one: LomSchema (ressource consultée)
+    
+    @author Projet LOM - EMSI
+-->
+<hibernate-mapping>
+    <class name="org.emsi.entities.ViewHistory" table="lom_view_history">
+        
+        <!-- Clé primaire auto-générée -->
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Relation Many-to-One vers User -->
+        <many-to-one name="user" 
+                     class="org.emsi.entities.User" 
+                     column="user_id" 
+                     not-null="true" 
+                     lazy="false"/>
+        
+        <!-- Relation Many-to-One vers LomSchema -->
+        <many-to-one name="resource" 
+                     class="org.emsi.entities.LomSchema" 
+                     column="resource_id" 
+                     not-null="true" 
+                     lazy="false"/>
+        
+        <!-- Date de dernière consultation -->
+        <property name="viewedAt" 
+                  column="viewed_at" 
+                  type="timestamp" 
+                  not-null="true"/>
+        
+        <!-- Nombre de consultations -->
+        <property name="viewCount" 
+                  column="view_count" 
+                  type="integer" 
+                  not-null="true"/>
+        
+        <!-- Durée de consultation (optionnel) -->
+        <property name="duration" 
+                  column="duration_seconds" 
+                  type="long"/>
+        
+    </class>
+</hibernate-mapping>

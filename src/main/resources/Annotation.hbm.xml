@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.Annotation" table="lom_annotation">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="entity" column="entity" type="text"/>
+        <property name="date" column="annotation_date" type="timestamp"/>
+        <property name="description" column="description" type="text"/>
+        
+        <!-- Relation vers LomSchema -->
+        <many-to-one name="lomSchema" class="org.emsi.entities.LomSchema" column="lom_schema_id"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.LomSchema" table="lom_schema">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="resourceTitle" column="resource_title" type="string" length="500"/>
+        <property name="resourceUrl" column="resource_url" type="string" length="1000"/>
+        <property name="createdAt" column="created_at" type="timestamp"/>
+        <property name="updatedAt" column="updated_at" type="timestamp"/>
+        
+        <!-- Relations one-to-one avec les catégories LOM -->
+        <one-to-one name="general" class="org.emsi.entities.General" cascade="all"/>
+        <one-to-one name="lifecycle" class="org.emsi.entities.Lifecycle" cascade="all"/>
+        <one-to-one name="metaMetadata" class="org.emsi.entities.MetaMetadata" cascade="all"/>
+        <one-to-one name="technical" class="org.emsi.entities.Technical" cascade="all"/>
+        <one-to-one name="educational" class="org.emsi.entities.Educational" cascade="all"/>
+        <one-to-one name="rights" class="org.emsi.entities.Rights" cascade="all"/>
+        
+        <!-- Relations one-to-many -->
+        <set name="relations" inverse="true" cascade="all-delete-orphan">
+            <key column="lom_schema_id"/>
+            <one-to-many class="org.emsi.entities.Relation"/>
+        </set>
+        
+        <set name="annotations" inverse="true" cascade="all-delete-orphan">
+            <key column="lom_schema_id"/>
+            <one-to-many class="org.emsi.entities.Annotation"/>
+        </set>
+        
+        <set name="classifications" inverse="true" cascade="all-delete-orphan">
+            <key column="lom_schema_id"/>
+            <one-to-many class="org.emsi.entities.Classification"/>
+        </set>
+    </class>
+</hibernate-mapping>

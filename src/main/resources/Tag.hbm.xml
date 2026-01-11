@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+    Mapping Hibernate XML pour l'entité Tag
+    
+    Ce fichier démontre:
+    - Mapping d'une entité avec relation many-to-many
+    - Utilisation d'une table de jointure (lom_tag_resources)
+    - Configuration des cascades et inverse
+    
+    @author Projet LOM - EMSI
+-->
+<hibernate-mapping>
+    <class name="org.emsi.entities.Tag" table="lom_tag">
+        <!-- Clé primaire avec génération automatique -->
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Propriétés simples -->
+        <property name="name" column="name" type="string" length="100" not-null="true" unique="true"/>
+        <property name="color" column="color" type="string" length="20"/>
+        <property name="description" column="description" type="string" length="500"/>
+        <property name="createdAt" column="created_at" type="timestamp"/>
+        
+        <!-- 
+            Relation many-to-many avec LomSchema
+            
+            - table: nom de la table de jointure
+            - key column: clé étrangère vers cette entité (Tag)
+            - column dans many-to-many: clé étrangère vers l'autre entité (LomSchema)
+            - lazy="true": chargement paresseux pour optimisation
+            - cascade="save-update": propage les sauvegardes et mises à jour
+        -->
+        <set name="resources" table="lom_tag_resources" lazy="true" cascade="save-update">
+            <key column="tag_id"/>
+            <many-to-many class="org.emsi.entities.LomSchema" column="lom_schema_id"/>
+        </set>
+    </class>
+</hibernate-mapping>

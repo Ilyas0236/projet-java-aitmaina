@@ -1,0 +1,61 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< org.emsi:projet-lom >-------------------------
+[INFO] Building Projet LOM 1.0 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 6 problems were encountered while building the effective model for org.openjfx:javafx-controls:jar:21.0.1 during dependency collection step for project (use -X to see details)
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ projet-lom ---
+[INFO] Deleting C:\Users\USER\.gemini\antigravity\scratch\projet-lom\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ projet-lom ---
+[INFO] Copying 25 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ projet-lom ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 39 source files with javac [debug target 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomViewDialog.java:[6,27] cannot find symbol
+  symbol:   class TabPane
+  location: package javafx.scene.layout
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomEditorDialog.java:[7,27] cannot find symbol
+  symbol:   class TabPane
+  location: package javafx.scene.layout
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomViewDialog.java:[26,13] cannot find symbol
+  symbol:   class TabPane
+  location: class org.emsi.ui.LomViewDialog
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomEditorDialog.java:[28,13] cannot find symbol
+  symbol:   class TabPane
+  location: class org.emsi.ui.LomEditorDialog
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.434 s
+[INFO] Finished at: 2026-01-10T18:28:06+01:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project projet-lom: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomViewDialog.java:[6,27] cannot find symbol
+[ERROR]   symbol:   class TabPane
+[ERROR]   location: package javafx.scene.layout
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomEditorDialog.java:[7,27] cannot find symbol
+[ERROR]   symbol:   class TabPane
+[ERROR]   location: package javafx.scene.layout
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomViewDialog.java:[26,13] cannot find symbol
+[ERROR]   symbol:   class TabPane
+[ERROR]   location: class org.emsi.ui.LomViewDialog
+[ERROR] /C:/Users/USER/.gemini/antigravity/scratch/projet-lom/src/main/java/org/emsi/ui/LomEditorDialog.java:[28,13] cannot find symbol
+[ERROR]   symbol:   class TabPane
+[ERROR]   location: class org.emsi.ui.LomEditorDialog
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

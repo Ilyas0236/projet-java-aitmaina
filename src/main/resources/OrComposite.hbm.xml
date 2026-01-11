@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.OrComposite" table="lom_or_composite">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="type" column="type" type="string" length="50"/>
+        <property name="name" column="name" type="string" length="100"/>
+        <property name="minimumVersion" column="minimum_version" type="string" length="50"/>
+        <property name="maximumVersion" column="maximum_version" type="string" length="50"/>
+        
+        <!-- Relation vers Requirement -->
+        <many-to-one name="requirement" class="org.emsi.entities.Requirement" column="requirement_id"/>
+    </class>
+</hibernate-mapping>

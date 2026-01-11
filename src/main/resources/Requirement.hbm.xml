@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.emsi.entities.Requirement" table="lom_requirement">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Relation vers Technical -->
+        <many-to-one name="technical" class="org.emsi.entities.Technical" column="technical_id"/>
+        
+        <!-- OrComposites -->
+        <set name="orComposites" inverse="true" cascade="all-delete-orphan">
+            <key column="requirement_id"/>
+            <one-to-many class="org.emsi.entities.OrComposite"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<!-- 
+    Interface FXML: Téléchargement de Ressources (Utilisateur)
+    
+    Permet à l'utilisateur de télécharger les fichiers associés aux ressources LOM
+    
+    @author Projet LOM - EMSI
+-->
+<BorderPane style="-fx-background-color: #f5f6fa;" prefWidth="600" prefHeight="450"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="org.emsi.ui.controllers.DownloadController">
+   
+   <top>
+      <VBox style="-fx-background-color: #27ae60;">
+         <padding>
+            <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+         </padding>
+         <Label text="📥 Télécharger les Fichiers" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="resourceTitleLabel" text="Ressource: -" textFill="#d5f5e3">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Label>
+      </VBox>
+   </top>
+   
+   <center>
+      <VBox spacing="15.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         
+         <!-- Informations de la ressource -->
+         <VBox style="-fx-background-color: white; -fx-background-radius: 10;" spacing="8.0">
+            <padding>
+               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <Label text="ℹ️ Informations de la ressource" style="-fx-font-weight: bold;" />
+            <HBox spacing="10.0">
+               <Label text="Langue:" style="-fx-text-fill: #7f8c8d;" prefWidth="100" />
+               <Label fx:id="languageLabel" text="-" />
+            </HBox>
+            <HBox spacing="10.0">
+               <Label text="Difficulté:" style="-fx-text-fill: #7f8c8d;" prefWidth="100" />
+               <Label fx:id="difficultyLabel" text="-" />
+            </HBox>
+            <HBox spacing="10.0">
+               <Label text="Mots-clés:" style="-fx-text-fill: #7f8c8d;" prefWidth="100" />
+               <Label fx:id="keywordsLabel" text="-" wrapText="true" />
+            </HBox>
+         </VBox>
+         
+         <Separator />
+         
+         <!-- Liste des fichiers disponibles -->
+         <Label text="📁 Fichiers disponibles au téléchargement:" style="-fx-font-weight: bold;" />
+         <ListView fx:id="filesListView" prefHeight="150.0" VBox.vgrow="ALWAYS" />
+         
+         <!-- Message si aucun fichier -->
+         <Label fx:id="noFilesLabel" text="Aucun fichier disponible pour cette ressource" 
+                style="-fx-text-fill: #95a5a6; -fx-font-style: italic;" visible="false" managed="false" />
+         
+         <!-- Barre de progression -->
+         <VBox fx:id="progressBox" spacing="5.0" visible="false" managed="false">
+            <Label fx:id="progressLabel" text="Téléchargement en cours..." />
+            <ProgressBar fx:id="downloadProgressBar" progress="0.0" prefWidth="560.0" />
+         </VBox>
+         
+      </VBox>
+   </center>
+   
+   <bottom>
+      <HBox spacing="10.0" alignment="CENTER_RIGHT" style="-fx-background-color: #ecf0f1;">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <Label fx:id="statusLabel" text="" style="-fx-text-fill: #27ae60;" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Button onAction="#handleClose" text="Fermer" 
+                 style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-cursor: hand;" />
+         <Button fx:id="downloadBtn" onAction="#handleDownload" text="📥 Télécharger" 
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-cursor: hand;" disable="true" />
+         <Button fx:id="downloadAllBtn" onAction="#handleDownloadAll" text="📦 Tout télécharger" 
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-cursor: hand;" disable="true" />
+      </HBox>
+   </bottom>
+</BorderPane>

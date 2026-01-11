@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+    Mapping Hibernate XML: Rating (Système de Notation)
+    
+    Table: lom_rating
+    Relations:
+    - many-to-one: User (utilisateur qui a noté)
+    - many-to-one: LomSchema (ressource notée)
+    
+    Contrainte: un utilisateur ne peut noter qu'une fois chaque ressource
+    
+    @author Projet LOM - EMSI
+-->
+<hibernate-mapping>
+    <class name="org.emsi.entities.Rating" table="lom_rating">
+        
+        <!-- Clé primaire auto-générée -->
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Relation Many-to-One vers User -->
+        <many-to-one name="user" 
+                     class="org.emsi.entities.User" 
+                     column="user_id" 
+                     not-null="true" 
+                     lazy="false"/>
+        
+        <!-- Relation Many-to-One vers LomSchema -->
+        <many-to-one name="resource" 
+                     class="org.emsi.entities.LomSchema" 
+                     column="resource_id" 
+                     not-null="true" 
+                     lazy="false"/>
+        
+        <!-- Notation en étoiles (1-5) -->
+        <property name="stars" 
+                  column="stars" 
+                  type="integer" 
+                  not-null="true"/>
+        
+        <!-- Commentaire optionnel -->
+        <property name="comment" 
+                  column="comment_text" 
+                  type="text"/>
+        
+        <!-- Date de création -->
+        <property name="createdAt" 
+                  column="created_at" 
+                  type="timestamp" 
+                  not-null="true"/>
+        
+        <!-- Date de mise à jour -->
+        <property name="updatedAt" 
+                  column="updated_at" 
+                  type="timestamp" 
+                  not-null="true"/>
+        
+    </class>
+</hibernate-mapping>

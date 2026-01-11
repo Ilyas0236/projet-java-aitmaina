@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+    Mapping Hibernate XML pour l'entité Favorite
+    
+    Ce fichier démontre:
+    - Mapping avec deux relations many-to-one (User et LomSchema)
+    - Contrainte d'unicité composite (user + resource)
+    
+    @author Projet LOM - EMSI
+-->
+<hibernate-mapping>
+    <class name="org.emsi.entities.Favorite" table="lom_favorite">
+        <!-- Clé primaire -->
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="identity"/>
+        </id>
+        
+        <!-- Propriétés -->
+        <property name="addedAt" column="added_at" type="timestamp"/>
+        <property name="note" column="note" type="string" length="500"/>
+        
+        <!-- Relation many-to-one avec User -->
+        <many-to-one name="user" 
+                     class="org.emsi.entities.User" 
+                     column="user_id" 
+                     not-null="true" 
+                     lazy="false"/>
+        
+        <!-- Relation many-to-one avec LomSchema -->
+        <many-to-one name="resource" 
+                     class="org.emsi.entities.LomSchema" 
+                     column="resource_id" 
+                     not-null="true" 
+                     lazy="false"/>
+    </class>
+</hibernate-mapping>
