@@ -14,12 +14,12 @@
 <br/>
 
 **Projet d'Ingénierie Logicielle Avancée & Conception d'Architectures Concurrentes**  
-*École Marocaine des Sciences de l'Ingénieur (EMSI) — Filière 4IIR*
+*École Marocaine des Sciences de l'Ingénieur (EMSI) — Casablanca*
 
 ---
 
 **Auteur :** [Ilyas Ait Maina](https://github.com/Ilyas0236) &nbsp;|&nbsp; **Superviseur Académique :** Pr. Abderrahim Larhlimi  
-*Projet de Fin d'Études (PFE) / Showcase Recruteurs & Évaluateurs Techniques*
+*Candidature Stage PFE (Février 2027) & Projet d'Ingénierie Informatique*
 
 </div>
 
@@ -299,12 +299,12 @@ Ce projet a été conçu et réalisé par :
 <div align="center">
 
 ### **Ilyas Ait Maina**
-*Élève Ingénieur en Informatique et Réseaux (4IIR)*  
-**École Marocaine des Sciences de l'Ingénieur (EMSI)**
+*Élève-Ingénieur en 5e année — Informatique & Systèmes d'Information*  
+**École Marocaine des Sciences de l'Ingénieur (EMSI Casablanca)**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Ilyas0236-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ilyas0236)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ilyas_Ait_Maina-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/)
-[![Email](https://img.shields.io/badge/Email-Contact_Direct-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ilyas.aitmaina@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ilyas_Ait_Maina-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ilyas-ait-maina-b5998b1b4)
+[![Email](https://img.shields.io/badge/Email-ilyasaitmaina@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ilyasaitmaina@gmail.com)
 
 </div>
 
